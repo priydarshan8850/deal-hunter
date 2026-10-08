@@ -1,0 +1,4 @@
+httpx
+curl_cffi
+python-dotenv
+truststore

@@ -1,0 +1,45 @@
+name: Check deals
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install httpx curl_cffi
+
+      - name: Check prices + send alerts
+        env:
+          SMTP_HOST: ${{ secrets.DEAL_SMTP_HOST }}
+          SMTP_USER: ${{ secrets.DEAL_SMTP_USER }}
+          SMTP_PASS: ${{ secrets.DEAL_SMTP_PASS }}
+          EMAIL_TO: ${{ secrets.DEAL_EMAIL_TO }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.DEAL_TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.DEAL_TELEGRAM_CHAT_ID }}
+        run: python scripts/check_once.py
+
+      - name: Save state
+        run: |
+          git config user.name "deal-hunter"
+          git config user.email "deal-hunter@users.noreply.github.com"
+          git pull --rebase --autostash
+          git add state.json
+          if git diff --cached --quiet; then
+            echo "state unchanged - nothing to save"
+          else
+            git commit -m "state: price check"
+            git push
+          fi

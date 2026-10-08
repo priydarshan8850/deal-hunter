@@ -1,0 +1,26 @@
+{
+  "_help": [
+    "my_cards: bank names only (NEVER card numbers) - alerts will highlight the best offer for YOUR cards.",
+    "products: paste product page links. target_price = alert when price <= target.",
+    "alert_on_drop_pct = also alert on any drop of this size vs the previous check (default 5).",
+    "The two products below are working examples - replace them with your own links."
+  ],
+  "my_cards": ["HDFC", "ICICI"],
+  "products": [
+    {
+      "id": "cetaphil-cream-100g",
+      "name": "Cetaphil Moisturising Cream 100g",
+      "url": "https://www.amazon.in/dp/B01HMLB0LW",
+      "target_price": 549,
+      "alert_on_drop_pct": 5
+    },
+    {
+      "id": "mivi-one-5g",
+      "name": "Mivi One 5G",
+      "url": "https://www.flipkart.com/mivi-one-5g/p/itm596121720eed0",
+      "target_price": 11999,
+      "alert_on_drop_pct": 5
+    }
+  ]
+}
+
