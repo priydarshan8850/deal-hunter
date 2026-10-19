@@ -3,16 +3,17 @@
   "name": "Cetaphil Moisturising Cream 100g",
   "url": "https://www.amazon.in/dp/B01HMLB0LW",
   "last_price": 623,
-  "last_checked_at": "2026-10-19 11:07:40",
+  "last_checked_at": "2026-10-19 17:41:00",
   "last_alert_price": 575,
   "last_alert_epoch": 1791982049.3884802,
-  "last_alert_at": "2026-10-14 12:47:31"
+  "last_alert_at": "2026-10-14 12:47:31",
+  "last_error": "fetch failed: browser client: HTTP 200 (3793 bytes) | httpx: HTTP 200 (3793 bytes)"
  },
  "mivi-one-5g": {
   "name": "Mivi One 5G",
   "url": "https://www.flipkart.com/mivi-one-5g/p/itm596121720eed0",
   "last_price": 13999,
-  "last_checked_at": "2026-10-19 11:07:41",
+  "last_checked_at": "2026-10-19 17:41:01",
   "last_alert_price": 11999,
   "last_alert_epoch": 1791487363.4569721,
   "last_alert_at": "2026-10-08 19:22:45"
